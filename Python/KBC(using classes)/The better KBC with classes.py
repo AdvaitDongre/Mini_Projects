@@ -1,49 +1,51 @@
-# a quiz game 
-# 1 to make the questions 
-# 2 to keep track of the scores
-# 3 take the answer
 import time
-print("Welcome to the better KBC\n made by Advait\n")
-time.sleep(2)
-print("I hope you score good, lets start\n")
-time.sleep(2)
-class game:
-    def questions(ques, a, b, c, d):
-        print(ques)
+
+class Game:
+    def __init__(self):
+        self.tries = 0
+
+    def ask_question(self, question, options):
+        print(question)
         time.sleep(2)
-        print(f"a){a}\n b) {b}\n c){c}\n d){d}\n")
-        time.sleep(1)
-        print("What is your answer?\n")
+        for i, option in enumerate(options, start=1):
+            print(f"{chr(96+i)}) {option}")
+            time.sleep(1)
 
-tries = 0
-def idk(a):
-    if a != "a" and a != "b" and a != "c"and a != "d":
-        print("Sorry Invalid input try again")
-        return
+    def check_answer(self, correct_option, user_answer):
+        if correct_option == user_answer:
+            self.tries += 1
 
-q1 = game 
-q1.questions("What is the capital of India?", "Delhi", "Maharastra", "Chennai", "Tamil Nadu")
-a = input()
-idk(a)
-if a == "a":
-    tries = tries + 1
+def main():
+    print("Welcome to the Better KBC\nMade by Advait\n")
+    time.sleep(2)
+    print("I hope you score well. Let's start!\n")
+    time.sleep(2)
 
-q2 = game
-q2.questions("What is my name?", "Adi", "Advait", "Aashu", "Idk")
-a = input()
-idk(a)
-if a == "b":
-    tries = tries +1
+    game = Game()
 
-# this is the ideal template and you can add more questions
-
-print(f"This is the points you have: {tries}")  
-
+    questions = [
+        {
+            "question": "What is the capital of India?",
+            "options": ["Delhi", "Maharashtra", "Chennai", "Tamil Nadu"],
+            "correct_option": "a"
+        },
+        {
+            "question": "What is my name?",
+            "options": ["Adi", "Advait", "Aashu", "Idk"],
+            "correct_option": "b"
+        }
         
+    ]
 
+    for question_data in questions:
+        game.ask_question(question_data["question"], question_data["options"])
+        user_answer = input("What is your answer? ").strip().lower()
+        while user_answer not in ["a", "b", "c", "d"]:
+            print("Sorry, invalid input. Please try again.")
+            user_answer = input("What is your answer? ").strip().lower()
+        game.check_answer(question_data["correct_option"], user_answer)
 
+    print(f"You have scored {game.tries} points.")
 
-        
-
-    
-
+if __name__ == "__main__":
+    main()
