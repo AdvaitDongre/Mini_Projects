@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <h2 class="logo">BMS</h2>
+            <ul class="nav-list">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Privacy</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <h2>DO YOU WANT TO LOGIN AS A...</h2>
+            <div>
+                <button type="button" onclick="openPopupADMIN()">ADMIN</button>
+                <button type="button" onclick="openPopupEMP()">EMPLOYEE</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="login-popup" id="loginPopup-EMPLOYEE">
+        <div class="popup-content">
+            <span class="close-button" onclick="closePopup()">&times;</span>
+            <h2>Employee</h2>
+            <form>
+                <div class="input-box">
+                <!-- <label for="username">Username:</label> -->
+                <input type="text" id="username" name="username" required placeholder="Username">
+                <!-- <i class='bx bxs-user' id="user_icon"></i> -->
+                </div>
+
+                <div class="input-box">
+                <!-- <label for="password">Password:</label> -->
+                <input placeholder="Password" type="password" id="password" name="password" required>
+                <!-- <i class='bx bxs-lock' ></i> -->
+                </div>
+
+                <div class="remember-forget">
+                    <div class="checkbox-label">
+                        <input type="checkbox" id="remember-me">
+                        <label for="remember-me">Remember Me</label>
+                    </div>
+                    <a href="#">Forget Password?</a>
+                </div>
+                
+
+                <button id="login-btn" type="button" onclick="login()">Login</button>
+            </form>
+        </div>
+    </div>
+    <div class="login-popup" id="loginPopup-ADMIN">
+        <div class="popup-content">
+            <span class="close-button" onclick="closePopup()">&times;</span>
+            <h2>Admin</h2>
+            <form>
+                <div class="input-box">
+                <!-- <label for="username">Username:</label> -->
+                <input type="text" id="username" name="username" required placeholder="Username">
+                <!-- <i class='bx bxs-user' id="user_icon"></i> -->
+                </div>
+
+                <div class="input-box">
+                <!-- <label for="password">Password:</label> -->
+                <input placeholder="Password" type="password" id="password" name="password" required>
+                <!-- <i class='bx bxs-lock' ></i> -->
+                </div>
+
+                <div class="remember-forget">
+                    <div class="checkbox-label">
+                        <input type="checkbox" id="remember-me">
+                        <label for="remember-me">Remember Me</label>
+                    </div>
+                    <a href="#">Forget Password?</a>
+                </div>
+                
+
+                <button id="login-btn" type="button" onclick="login()">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
